@@ -1,3 +1,4 @@
+// import { ERROR_COMPONENT_TYPE } from '@angular/compiler';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -14,6 +15,17 @@ const routes: Routes = [
     { path: 'acceuil', component: HomeComponent},
     { path: 'service', component: ServiceComponent},
     { path: 'contact', component: ContactComponent},
+
+    {
+      // tslint:disable-next-line: align
+      path: 'clients', loadChildren: () => import('./clients/clients.module')
+      .then(m => m.ClientsModule)
+    },
+    {
+      // tslint:disable-next-line: align
+      path: 'utilisateurs', loadChildren: () => import('./utilisateurs/utilisateurs.module')
+      .then(m => m.UtilisateursModule)
+    },
 
     //  Gestion des erreurs d'URL toujours à la fin
     { path: '**', component: ErrorComponent}

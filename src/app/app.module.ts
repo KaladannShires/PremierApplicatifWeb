@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule, NbCardModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,10 @@ import { ContactComponent } from './contact/contact.component';
 
 import { ErrorComponent } from './error/error.component';
 
+import { ClientsRoutingModule } from './clients/clients-routing.module';
+import { UtilisateursRoutingModule } from './utilisateurs/utilisateurs-routing.module';
+
+
 
 @NgModule({
   declarations: [
@@ -21,15 +25,20 @@ import { ErrorComponent } from './error/error.component';
     HomeComponent,
     ServiceComponent,
     ContactComponent,
-    ErrorComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ClientsRoutingModule,
+    UtilisateursRoutingModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
